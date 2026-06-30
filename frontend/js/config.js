@@ -1,1 +1,1 @@
-const BASE_URL = "https://user-registration-system-bice.vercel.app/api/auth";
+const BASE_URL = "https://user-registration-api-la78.onrender.com/api/auth";
