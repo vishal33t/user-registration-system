@@ -11,6 +11,7 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
+
 app.use("/api/auth", authRoutes);
 
 app.get("/", (req, res) => {
@@ -19,16 +20,8 @@ app.get("/", (req, res) => {
 
 const PORT = process.env.PORT || 5000;
 
-const startServer = async () => {
-    await connectDB();
-};
-
-startServer();
-
-module.exports = app;
-
-if (process.env.NODE_ENV !== "production") {
+connectDB().then(() => {
     app.listen(PORT, () => {
         console.log(`🚀 Server running on port ${PORT}`);
     });
-}
+});
